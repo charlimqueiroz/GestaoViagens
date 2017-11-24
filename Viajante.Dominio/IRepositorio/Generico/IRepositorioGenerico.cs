@@ -12,5 +12,10 @@ namespace Viajante.Dominio.IRepositorio.Generico
         IQueryable<T> Todos();
         T BuscarPor(Expression<Func<T, bool>> expression);
         IQueryable<T> FiltrarPor(Expression<Func<T, bool>> expression);
+        void Salvar(T entity);
+        void SalvarEAtualizar(T entity);
+        void Excluir(T entity);
+        void Excluir(long id);
+        void Atualizar(T entity);
     }
 }

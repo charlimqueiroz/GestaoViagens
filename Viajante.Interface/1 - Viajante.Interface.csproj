@@ -32,6 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Remotion.Linq.2.1.2\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.1.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,6 +77,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Telas\FCadastroVeiculo.resx">
+      <DependentUpon>FCadastroVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,9 +96,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ConexaoBanco\serverBD.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Viajante.Negocio\3 - Viajante.Negocio.csproj">
+      <Project>{1DAF8B48-9908-420A-BDFA-714D14AB67BC}</Project>
+      <Name>3 - Viajante.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajante.Persistencia\5 - Viajante.Persistencia.csproj">
+      <Project>{ca4873b8-143e-444a-8059-c96ac9e017b2}</Project>
+      <Name>5 - Viajante.Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajante.Transporte\2 - Viajante.Transporte.csproj">
+      <Project>{49923404-2979-4d8e-943b-47816c9208dd}</Project>
+      <Name>2 - Viajante.Transporte</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

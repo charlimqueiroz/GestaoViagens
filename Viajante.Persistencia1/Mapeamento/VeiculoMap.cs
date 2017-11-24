@@ -7,11 +7,7 @@ namespace Viajante.Persistencia.Mapeamento
     {
         public VeiculoMap()
         {
-            Id(x => x.Id)
-                .GeneratedBy.Identity()
-                .UnsavedValue(0);
-                //.Access.CamelCaseField(Prefix.Underscore);
-            //Id(x => x.Id);
+            Id(x => x.Id);
             Map(x => x.Placa).Length(7).Unique().Not.Nullable();
             Map(x => x.Chassi).Length(30).Not.Nullable();
             Map(x => x.Marca).Column("Marca").Length(30).Not.Nullable();

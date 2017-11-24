@@ -42,14 +42,15 @@
       <Project>{cf0b9b6b-b945-4299-807f-8d806bf86dbe}</Project>
       <Name>4 - Viajante.Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Viajante.Persistencia\5 - Viajante.Persistencia.csproj">
-      <Project>{b8b2ac23-94b7-45ff-8a39-117a2c39ff33}</Project>
-      <Name>5 - Viajante.Persistencia</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Viajante.Transporte\2 - Viajante.Transporte.csproj">
       <Project>{49923404-2979-4d8e-943b-47816c9208dd}</Project>
       <Name>2 - Viajante.Transporte</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Controles\CVeiculo.cs" />
+    <Compile Include="Fabrica\FabricaDeControles.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
