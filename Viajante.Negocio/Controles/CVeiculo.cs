@@ -1,5 +1,6 @@
 ﻿using Noventa.Dominio.IRepositorio;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Viajante.Dominio.Dominio;
 using Viajante.Dominio.Fabrica;
@@ -21,6 +22,49 @@ namespace Viajante.Negocio.Controles
 
         public void Salvar(TVeiculo tVeiculo)
         {
+            if (tVeiculo.Placa.Count() != 7)
+            {
+                throw new System.Exception("A placa do veículo deve possuir 7 caracteres.");
+            }
+
+            if (tVeiculo.Placa.Count() != 17)
+            {
+                throw new System.Exception("O chassi do veículo deve possuir 17 caracteres.");
+            }
+
+            if (tVeiculo.Marca.Count() == 0)
+            {
+                throw new System.Exception("A Marca do veículo deve ser informada.");
+            }
+
+            if (tVeiculo.Modelo.Count() == 0)
+            {
+                throw new System.Exception("O Modelo do veículo deve ser informado.");
+            }
+
+            if (tVeiculo.AnoModelo == 0)
+            {
+                throw new System.Exception("O ano do modelo do veículo não pode ser igual a 0.");
+            }
+
+            if (tVeiculo.AnoFabricacao == 0)
+            {
+                throw new System.Exception("O ano de fabricação do veículo não pode ser igual a 0.");
+            }
+
+            if (tVeiculo.Placa.Substring(0, 3).Where(c => char.IsLetter(c)).Count() != 3)
+            {
+                throw new System.Exception("A placa do veículo deve possuir letras nos 3 primeiros caracteres.");
+            }
+            else
+            if (tVeiculo.Placa.Substring(3, 4).Where(c => char.IsNumber(c)).Count() != 4)
+            {
+                throw new System.Exception("A placa do veículo deve possuir numeros nas posições de 4 a 7.");
+            }
+
+            var tVeic = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarPelaPlaca(tVeiculo.Placa);
+            if (tVeic != null)
+                tVeiculo.Id = tVeic.Id;
             Veiculo veiculo = TVeiculoParaVeiculo(tVeiculo);
 
             FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.Salvar(veiculo);
@@ -29,7 +73,7 @@ namespace Viajante.Negocio.Controles
 
         public void Excluir(long idVeiculo)
         {
-           var tVeiculo = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarPorId(idVeiculo);
+            var tVeiculo = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarPorId(idVeiculo);
             FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.Excluir(tVeiculo);
         }
 

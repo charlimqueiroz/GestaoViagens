@@ -72,7 +72,8 @@ namespace Viajante.Interface.Telas
 
         #endregion
 
-        private void tsbtnConfiguracao_Click(object sender, EventArgs e)
+
+        private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarregaTela<FCadastroVeiculo>();
         }

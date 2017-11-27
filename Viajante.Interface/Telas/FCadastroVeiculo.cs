@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Viajante.Negocio.Fabrica;
@@ -56,6 +57,54 @@ namespace Viajante.Interface.Telas
 
         private void toolStripButton1_Click(object sender, System.EventArgs e)
         {
+            if (tbPlaca.Text.Count() != 7)
+            {
+                MessageBox.Show("A placa do veículo deve possuir 7 caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbPlaca.Text.Count() != 17)
+            {
+                MessageBox.Show("O chassi do veículo deve possuir 17 caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbMarca.Text.Count() == 0)
+            {
+                MessageBox.Show("A Marca do veículo deve ser informada.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbModelo.Text.Count() == 0)
+            {
+                MessageBox.Show("O Modelo do veículo deve ser informado.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (nudAnoModelo.Value == 0)
+            {
+                MessageBox.Show("O ano do modelo do veículo não pode ser igual a 0.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (nudAnoFabricacao.Value == 0)
+            {
+                MessageBox.Show("O ano de fabricação do veículo não pode ser igual a 0.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbPlaca.Text.Substring(0, 3).Where(c => char.IsLetter(c)).Count() != 3)
+            {
+                MessageBox.Show("A placa do veículo deve possuir letras nos 3 primeiros caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            if (tbPlaca.Text.Substring(3, 4).Where(c => char.IsNumber(c)).Count() != 4)
+            {
+                MessageBox.Show("A placa do veículo deve possuir numeros nas posições de 4 a 7.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             TelaParaTransporte();
             cVeiculo.Salvar(tVeiculo);
             LimparTela();
@@ -87,6 +136,9 @@ namespace Viajante.Interface.Telas
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            if (DialogResult.No == MessageBox.Show("Confirma a exclusão do veículo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                return;
+
             if (dgvVeiculos.CurrentRow != null)
             {
                 DataRowCollection rows = dataTableVeiculos.Rows;
@@ -114,7 +166,7 @@ namespace Viajante.Interface.Telas
                 tbMarca.Text = dtRow["Marca"].ToString();
                 tbModelo.Text = dtRow["Modelo"].ToString();
                 nudAnoModelo.Value = (int)dtRow["AnoModelo"];
-                nudAnoFabricacao.Value = (int)dtRow["AnoModelo"];
+                nudAnoFabricacao.Value = (int)dtRow["AnoFabricacao"];
             }
         }
 
