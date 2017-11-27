@@ -13,13 +13,23 @@ namespace Viajante.Interface.Telas
     {
         //LogDoSistema GravarLog = new LogDoSistema();
 
+        #region Construtor
         public MainForm()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            this.ShowInTaskbar = false;
+            //this.ShowInTaskbar = false;
             Text = Text + " - Versão: ";// + Auxiliar.VersaoSistema;
         }
+        #endregion
+
+        #region Ações da Interface
+        private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarregaTela<FCadastroVeiculo>();
+        }
+
+        #endregion
 
         #region Ações dos Botões
 
@@ -72,10 +82,5 @@ namespace Viajante.Interface.Telas
 
         #endregion
 
-
-        private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CarregaTela<FCadastroVeiculo>();
-        }
     }
 }

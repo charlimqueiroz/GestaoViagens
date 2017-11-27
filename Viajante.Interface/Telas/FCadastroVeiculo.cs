@@ -12,10 +12,14 @@ namespace Viajante.Interface.Telas
 {
     public partial class FCadastroVeiculo : Form
     {
+        #region Propriedades
         private ICVeiculo cVeiculo = FabricaDeControles<ICVeiculo>.Instancia;
         private DataTable dataTableVeiculos = new DataTable();
         private TVeiculo tVeiculo = new TVeiculo();
 
+        #endregion
+
+        #region Construtor/Inicialização
         public FCadastroVeiculo()
         {
             InitializeComponent();
@@ -31,6 +35,9 @@ namespace Viajante.Interface.Telas
             LimparTela();
         }
 
+        #endregion
+
+        #region Métodos de Controle
         private void CriarDataTable()
         {
             dataTableVeiculos.Columns.Add("Id", typeof(long));
@@ -55,6 +62,54 @@ namespace Viajante.Interface.Telas
             });
         }
 
+        private void LimparTela()
+        {
+            tbPlaca.Clear();
+            tbChassi.Clear();
+            tbMarca.Clear();
+            tbModelo.Clear();
+            nudAnoModelo.Value = DateTime.Now.Year;
+            nudAnoFabricacao.Value = DateTime.Now.Year;
+        }
+
+        private TVeiculo TelaParaTransporte()
+        {
+            tVeiculo.Id = 0;
+            tVeiculo.Placa = tbPlaca.Text;
+            tVeiculo.Chassi = tbChassi.Text;
+            tVeiculo.Marca = tbMarca.Text;
+            tVeiculo.Modelo = tbModelo.Text;
+            tVeiculo.AnoModelo = (int)nudAnoModelo.Value;
+            tVeiculo.AnoFabricacao = (int)nudAnoFabricacao.Value;
+
+            return tVeiculo;
+        }
+
+        private void GridToTela()
+        {
+            if (dgvVeiculos.CurrentRow != null)
+            {
+                DataRowCollection rows = dataTableVeiculos.Rows;
+
+                var dtRow = rows[dgvVeiculos.CurrentRow.Index];
+                long id = (long)dtRow["Id"];
+                tbPlaca.Text = dtRow["Placa"].ToString();
+                tbChassi.Text = dtRow["Chassi"].ToString();
+                tbMarca.Text = dtRow["Marca"].ToString();
+                tbModelo.Text = dtRow["Modelo"].ToString();
+                nudAnoModelo.Value = (int)dtRow["AnoModelo"];
+                nudAnoFabricacao.Value = (int)dtRow["AnoFabricacao"];
+            }
+        }
+
+        private void dgvVeiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GridToTela();
+        }
+
+        #endregion
+
+        #region Métodos da Interface
         private void toolStripButton1_Click(object sender, System.EventArgs e)
         {
             if (tbPlaca.Text.Count() != 7)
@@ -111,29 +166,6 @@ namespace Viajante.Interface.Telas
             CarregarGrid();
         }
 
-        private void LimparTela()
-        {
-            tbPlaca.Clear();
-            tbChassi.Clear();
-            tbMarca.Clear();
-            tbModelo.Clear();
-            nudAnoModelo.Value = DateTime.Now.Year;
-            nudAnoFabricacao.Value = DateTime.Now.Year;
-        }
-
-        private TVeiculo TelaParaTransporte()
-        {
-            tVeiculo.Id = 0;
-            tVeiculo.Placa = tbPlaca.Text;
-            tVeiculo.Chassi = tbChassi.Text;
-            tVeiculo.Marca = tbMarca.Text;
-            tVeiculo.Modelo = tbModelo.Text;
-            tVeiculo.AnoModelo = (int)nudAnoModelo.Value;
-            tVeiculo.AnoFabricacao = (int)nudAnoFabricacao.Value;
-
-            return tVeiculo;
-        }
-
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             if (DialogResult.No == MessageBox.Show("Confirma a exclusão do veículo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
@@ -153,26 +185,6 @@ namespace Viajante.Interface.Telas
             }
         }
 
-        private void GridToTela()
-        {
-            if (dgvVeiculos.CurrentRow != null)
-            {
-                DataRowCollection rows = dataTableVeiculos.Rows;
-
-                var dtRow = rows[dgvVeiculos.CurrentRow.Index];
-                long id = (long)dtRow["Id"];
-                tbPlaca.Text = dtRow["Placa"].ToString();
-                tbChassi.Text = dtRow["Chassi"].ToString();
-                tbMarca.Text = dtRow["Marca"].ToString();
-                tbModelo.Text = dtRow["Modelo"].ToString();
-                nudAnoModelo.Value = (int)dtRow["AnoModelo"];
-                nudAnoFabricacao.Value = (int)dtRow["AnoFabricacao"];
-            }
-        }
-
-        private void dgvVeiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            GridToTela();
-        }
+        #endregion
     }
 }
