@@ -100,6 +100,7 @@
     <Content Include="ConexaoBanco\serverBD.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Script\ScriptViajante.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.png" />
