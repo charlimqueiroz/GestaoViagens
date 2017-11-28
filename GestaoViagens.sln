@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4 - Viajante.Dominio", "Viajante.Dominio\4 - Viajante.Dominio.csproj", "{CF0B9B6B-B945-4299-807F-8D806BF86DBE}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Viajante.Interface", "Viajante.Interface\1 - Viajante.Interface.csproj", "{2966C005-396F-4A43-8CF9-14D3694B6E83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5 - Viajante.Persistencia", "Viajante.Persistencia\5 - Viajante.Persistencia.csproj", "{CA4873B8-143E-444A-8059-C96AC9E017B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7 - Viajante.ExceptionHandler", "Viajante.ExceptionHandler\7 - Viajante.ExceptionHandler.csproj", "{67A3273D-8F0F-441C-8B75-A95B75502517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8 - Viajante.ExcecoesLocais", "Viajante.ExcecoesLocais\8 - Viajante.ExcecoesLocais.csproj", "{BEF31591-C3AE-4EC9-80D2-3F79D759CF11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{CA4873B8-143E-444A-8059-C96AC9E017B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA4873B8-143E-444A-8059-C96AC9E017B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA4873B8-143E-444A-8059-C96AC9E017B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A3273D-8F0F-441C-8B75-A95B75502517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A3273D-8F0F-441C-8B75-A95B75502517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A3273D-8F0F-441C-8B75-A95B75502517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A3273D-8F0F-441C-8B75-A95B75502517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF31591-C3AE-4EC9-80D2-3F79D759CF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF31591-C3AE-4EC9-80D2-3F79D759CF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF31591-C3AE-4EC9-80D2-3F79D759CF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF31591-C3AE-4EC9-80D2-3F79D759CF11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,11 @@
 ﻿using Noventa.Dominio.IRepositorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Viajante.Dominio.Dominio;
 using Viajante.Dominio.Fabrica;
+using Viajante.Exceptions;
 using Viajante.Transporte.Cadastros;
 using Viajante.Transporte.IControles;
 
@@ -24,42 +26,42 @@ namespace Viajante.Negocio.Controles
         {
             if (tVeiculo.Placa.Count() != 7)
             {
-                throw new System.Exception("A placa do veículo deve possuir 7 caracteres.");
+                throw new BusinessException("A placa do veículo deve possuir 7 caracteres.");
             }
 
             if (tVeiculo.Placa.Count() != 17)
             {
-                throw new System.Exception("O chassi do veículo deve possuir 17 caracteres.");
+                throw new BusinessException("O chassi do veículo deve possuir 17 caracteres.");
             }
 
             if (tVeiculo.Marca.Count() == 0)
             {
-                throw new System.Exception("A Marca do veículo deve ser informada.");
+                throw new BusinessException("A Marca do veículo deve ser informada.");
             }
 
             if (tVeiculo.Modelo.Count() == 0)
             {
-                throw new System.Exception("O Modelo do veículo deve ser informado.");
+                throw new BusinessException("O Modelo do veículo deve ser informado.");
             }
 
             if (tVeiculo.AnoModelo == 0)
             {
-                throw new System.Exception("O ano do modelo do veículo não pode ser igual a 0.");
+                throw new BusinessException("O ano do modelo do veículo não pode ser igual a 0.");
             }
 
             if (tVeiculo.AnoFabricacao == 0)
             {
-                throw new System.Exception("O ano de fabricação do veículo não pode ser igual a 0.");
+                throw new BusinessException("O ano de fabricação do veículo não pode ser igual a 0.");
             }
 
             if (tVeiculo.Placa.Substring(0, 3).Where(c => char.IsLetter(c)).Count() != 3)
             {
-                throw new System.Exception("A placa do veículo deve possuir letras nos 3 primeiros caracteres.");
+                throw new BusinessException("A placa do veículo deve possuir letras nos 3 primeiros caracteres.");
             }
             else
             if (tVeiculo.Placa.Substring(3, 4).Where(c => char.IsNumber(c)).Count() != 4)
             {
-                throw new System.Exception("A placa do veículo deve possuir numeros nas posições de 4 a 7.");
+                throw new BusinessException("A placa do veículo deve possuir numeros nas posições de 4 a 7.");
             }
 
             var tVeic = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarPelaPlaca(tVeiculo.Placa);
@@ -67,8 +69,14 @@ namespace Viajante.Negocio.Controles
                 tVeiculo.Id = tVeic.Id;
             Veiculo veiculo = TVeiculoParaVeiculo(tVeiculo);
 
-            FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.Salvar(veiculo);
-
+            try
+            {
+                FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.Salvar(veiculo);
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandler.Handle(ex);
+            }
         }
 
         public void Excluir(long idVeiculo)
