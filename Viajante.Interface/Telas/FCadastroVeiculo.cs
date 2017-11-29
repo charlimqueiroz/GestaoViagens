@@ -118,7 +118,7 @@ namespace Viajante.Interface.Telas
                 return;
             }
 
-            if (tbPlaca.Text.Count() != 17)
+            if (tbChassi.Text.Count() != 17)
             {
                 MessageBox.Show("O chassi do veículo deve possuir 17 caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

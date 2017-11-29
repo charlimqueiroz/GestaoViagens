@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Viajante.Interface.Telas;
 
@@ -15,9 +12,16 @@ namespace Viajante.Interface
         [STAThread]
         static void Main()
         {
+            InicializarAutoMapper();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+        }
+
+        private static void InicializarAutoMapper()
+        {
+            AutoMapperConfig.AutoMapperConfig.RegisterMappings();
         }
     }
 }

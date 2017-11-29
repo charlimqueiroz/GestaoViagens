@@ -54,10 +54,12 @@ namespace Viajante.Persistencia.Repositorio.Generico
         #endregion
 
         #region SaveOrUpdate
-        public void SalvarEAtualizar(T entity)
+        public void SalvarOuAtualizar(T entity)
         {
             using (var tran = _session.BeginTransaction())
             {
+                _session.Clear();
+                _session.Flush();
                 _session.SaveOrUpdate(entity);
                 tran.Commit();
             }
@@ -73,6 +75,8 @@ namespace Viajante.Persistencia.Repositorio.Generico
 
             using (var tran = _session.BeginTransaction())
             {
+                _session.Clear();
+                _session.Flush();
                 _session.Save(entity);
                 tran.Commit();
             }
@@ -140,6 +144,8 @@ namespace Viajante.Persistencia.Repositorio.Generico
 
             using (var tran = _session.BeginTransaction())
             {
+                _session.Clear();
+                _session.Flush();
                 _session.Update(entity);
                 tran.Commit();
             }

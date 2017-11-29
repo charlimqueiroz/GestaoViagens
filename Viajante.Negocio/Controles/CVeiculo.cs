@@ -1,4 +1,5 @@
-﻿using Noventa.Dominio.IRepositorio;
+﻿using AutoMapper;
+using Noventa.Dominio.IRepositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,7 @@ namespace Viajante.Negocio.Controles
     {
         public IList<TVeiculo> BuscarTosdos()
         {
-            IList<Veiculo> veiculos = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarTodos();
-
-            IList<TVeiculo> tVeiculos = VeiculoparaTVeiculo(veiculos);
+            IList<TVeiculo> tVeiculos = Mapper.Map<List<TVeiculo>>(FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarTodos());
 
             return tVeiculos;
         }
@@ -29,7 +28,7 @@ namespace Viajante.Negocio.Controles
                 throw new BusinessException("A placa do veículo deve possuir 7 caracteres.");
             }
 
-            if (tVeiculo.Placa.Count() != 17)
+            if (tVeiculo.Chassi.Count() != 17)
             {
                 throw new BusinessException("O chassi do veículo deve possuir 17 caracteres.");
             }
@@ -67,11 +66,11 @@ namespace Viajante.Negocio.Controles
             var tVeic = FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.BuscarPelaPlaca(tVeiculo.Placa);
             if (tVeic != null)
                 tVeiculo.Id = tVeic.Id;
-            Veiculo veiculo = TVeiculoParaVeiculo(tVeiculo);
+            Veiculo veiculo = Mapper.Map<Veiculo>(tVeiculo); //TVeiculoParaVeiculo(tVeiculo);
 
             try
             {
-                FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.Salvar(veiculo);
+                FabricaDeRepositorios<IVeiculoRepositorio>.Instancia.SalvarOuAtualizar(veiculo);
             }
             catch (Exception ex)
             {

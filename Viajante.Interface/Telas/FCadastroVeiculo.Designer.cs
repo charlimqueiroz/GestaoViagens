@@ -33,6 +33,13 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
+            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnoModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnoFabricacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,13 +53,6 @@
             this.tbChassi = new System.Windows.Forms.TextBox();
             this.tbPlaca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnoModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnoFabricacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -104,156 +104,11 @@
             this.AnoFabricacao});
             this.dgvVeiculos.Location = new System.Drawing.Point(12, 155);
             this.dgvVeiculos.Name = "dgvVeiculos";
+            this.dgvVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVeiculos.Size = new System.Drawing.Size(810, 231);
             this.dgvVeiculos.TabIndex = 4;
+            this.dgvVeiculos.TabStop = false;
             this.dgvVeiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeiculos_CellContentClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.nudAnoFabricacao);
-            this.groupBox1.Controls.Add(this.nudAnoModelo);
-            this.groupBox1.Controls.Add(this.tbModelo);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tbMarca);
-            this.groupBox1.Controls.Add(this.tbChassi);
-            this.groupBox1.Controls.Add(this.tbPlaca);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(809, 121);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cadastro de Veículos";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(675, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Ano Fabricação";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(541, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Ano Modelo";
-            // 
-            // nudAnoFabricacao
-            // 
-            this.nudAnoFabricacao.Location = new System.Drawing.Point(678, 84);
-            this.nudAnoFabricacao.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.nudAnoFabricacao.Minimum = new decimal(new int[] {
-            1800,
-            0,
-            0,
-            0});
-            this.nudAnoFabricacao.Name = "nudAnoFabricacao";
-            this.nudAnoFabricacao.Size = new System.Drawing.Size(125, 20);
-            this.nudAnoFabricacao.TabIndex = 11;
-            this.nudAnoFabricacao.Value = new decimal(new int[] {
-            1800,
-            0,
-            0,
-            0});
-            // 
-            // nudAnoModelo
-            // 
-            this.nudAnoModelo.Location = new System.Drawing.Point(541, 84);
-            this.nudAnoModelo.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.nudAnoModelo.Minimum = new decimal(new int[] {
-            1800,
-            0,
-            0,
-            0});
-            this.nudAnoModelo.Name = "nudAnoModelo";
-            this.nudAnoModelo.Size = new System.Drawing.Size(125, 20);
-            this.nudAnoModelo.TabIndex = 10;
-            this.nudAnoModelo.Value = new decimal(new int[] {
-            1800,
-            0,
-            0,
-            0});
-            // 
-            // tbModelo
-            // 
-            this.tbModelo.Location = new System.Drawing.Point(6, 84);
-            this.tbModelo.Name = "tbModelo";
-            this.tbModelo.Size = new System.Drawing.Size(529, 20);
-            this.tbModelo.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Modelo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(541, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Marca";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(273, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Chassi";
-            // 
-            // tbMarca
-            // 
-            this.tbMarca.Location = new System.Drawing.Point(541, 40);
-            this.tbMarca.Name = "tbMarca";
-            this.tbMarca.Size = new System.Drawing.Size(262, 20);
-            this.tbMarca.TabIndex = 5;
-            // 
-            // tbChassi
-            // 
-            this.tbChassi.Location = new System.Drawing.Point(273, 40);
-            this.tbChassi.Name = "tbChassi";
-            this.tbChassi.Size = new System.Drawing.Size(262, 20);
-            this.tbChassi.TabIndex = 4;
-            // 
-            // tbPlaca
-            // 
-            this.tbPlaca.Location = new System.Drawing.Point(5, 40);
-            this.tbPlaca.Name = "tbPlaca";
-            this.tbPlaca.Size = new System.Drawing.Size(262, 20);
-            this.tbPlaca.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Placa";
             // 
             // Placa
             // 
@@ -310,6 +165,157 @@
             this.AnoFabricacao.Name = "AnoFabricacao";
             this.AnoFabricacao.ReadOnly = true;
             this.AnoFabricacao.Width = 90;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.nudAnoFabricacao);
+            this.groupBox1.Controls.Add(this.nudAnoModelo);
+            this.groupBox1.Controls.Add(this.tbModelo);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbMarca);
+            this.groupBox1.Controls.Add(this.tbChassi);
+            this.groupBox1.Controls.Add(this.tbPlaca);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(809, 121);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cadastro de Veículos";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(675, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Ano Fabricação";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(541, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Ano Modelo";
+            // 
+            // nudAnoFabricacao
+            // 
+            this.nudAnoFabricacao.Location = new System.Drawing.Point(678, 84);
+            this.nudAnoFabricacao.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudAnoFabricacao.Minimum = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            this.nudAnoFabricacao.Name = "nudAnoFabricacao";
+            this.nudAnoFabricacao.Size = new System.Drawing.Size(125, 20);
+            this.nudAnoFabricacao.TabIndex = 5;
+            this.nudAnoFabricacao.Value = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            // 
+            // nudAnoModelo
+            // 
+            this.nudAnoModelo.Location = new System.Drawing.Point(541, 84);
+            this.nudAnoModelo.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudAnoModelo.Minimum = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            this.nudAnoModelo.Name = "nudAnoModelo";
+            this.nudAnoModelo.Size = new System.Drawing.Size(125, 20);
+            this.nudAnoModelo.TabIndex = 4;
+            this.nudAnoModelo.Value = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            // 
+            // tbModelo
+            // 
+            this.tbModelo.Location = new System.Drawing.Point(6, 84);
+            this.tbModelo.MaxLength = 30;
+            this.tbModelo.Name = "tbModelo";
+            this.tbModelo.Size = new System.Drawing.Size(529, 20);
+            this.tbModelo.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Modelo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(541, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Marca";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(273, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Chassi";
+            // 
+            // tbMarca
+            // 
+            this.tbMarca.Location = new System.Drawing.Point(541, 40);
+            this.tbMarca.MaxLength = 30;
+            this.tbMarca.Name = "tbMarca";
+            this.tbMarca.Size = new System.Drawing.Size(262, 20);
+            this.tbMarca.TabIndex = 5;
+            // 
+            // tbChassi
+            // 
+            this.tbChassi.Location = new System.Drawing.Point(273, 40);
+            this.tbChassi.MaxLength = 17;
+            this.tbChassi.Name = "tbChassi";
+            this.tbChassi.Size = new System.Drawing.Size(262, 20);
+            this.tbChassi.TabIndex = 2;
+            // 
+            // tbPlaca
+            // 
+            this.tbPlaca.Location = new System.Drawing.Point(5, 40);
+            this.tbPlaca.MaxLength = 7;
+            this.tbPlaca.Name = "tbPlaca";
+            this.tbPlaca.Size = new System.Drawing.Size(262, 20);
+            this.tbPlaca.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Placa";
             // 
             // FCadastroVeiculo
             // 
