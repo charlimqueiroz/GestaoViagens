@@ -56,10 +56,15 @@ namespace Viajante.Interface.Telas
             dataTableVeiculos.Clear();
             IList<TVeiculo> tVeiculos = cVeiculo.BuscarTosdos();
 
-            Parallel.ForEach(tVeiculos, veiculo =>
+            foreach (var veiculo in tVeiculos)
             {
                 dataTableVeiculos.Rows.Add(new object[] { veiculo.Id, veiculo.Placa, veiculo.Chassi, veiculo.Marca, veiculo.Modelo, veiculo.AnoModelo, veiculo.AnoFabricacao });
-            });
+            }
+
+            //Parallel.ForEach(tVeiculos, veiculo =>
+            //{
+            //    dataTableVeiculos.Rows.Add(new object[] { veiculo.Id, veiculo.Placa, veiculo.Chassi, veiculo.Marca, veiculo.Modelo, veiculo.AnoModelo, veiculo.AnoFabricacao });
+            //});
         }
 
         private void LimparTela()
