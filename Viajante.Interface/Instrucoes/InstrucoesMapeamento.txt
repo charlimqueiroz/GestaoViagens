@@ -1,0 +1,26 @@
+Como mapear um objeto no sistema
+
+Instruções:
+		Em caso de palavra composta, não utilizar separadores do tipo "-", "_" etc
+		Usar o padrão primeira letra maicuscula de cada palavra (exemplo: nome banco está com nome "unidade_federacao", criar a classe como UnidadeFederacao.cs)
+
+
+Exemplo de mapeamento do objeto "Cidade"
+
+
+1. Criar a classe no projeto Viajante.Dominio
+	Pasta: Dominio
+		Nome: Cidade.cs
+	Pasta: IRepositorio
+		Nome: ICidadeRepositorio.cs
+		
+2. Criar a classe do projeto Viajante.Persistencia
+	Pasta: Mapeamento
+		Nome: CidadeMap.cs
+	Pasta: Repositorio
+		Nome: CidadeRepositorio.cs
+
+		
+3. Criar a classe no projeto Viajante.Transporte
+	Pasta: Cadastros
+		Nome: TCidade.cs

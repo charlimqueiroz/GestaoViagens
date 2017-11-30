@@ -41,10 +41,18 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig\RegistrarAutoMapper.cs" />
     <Compile Include="AutoMapperConfig\Veiculo.cs" />
+    <Compile Include="Cadastros\TTelefone.cs" />
+    <Compile Include="Cadastros\TCidade.cs" />
+    <Compile Include="Cadastros\TUnidadeFederacao.cs" />
     <Compile Include="Cadastros\TVeiculo.cs" />
     <Compile Include="IControles\ICVeiculo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Viajante.Comum\6 - Viajante.Comum.csproj">
+      <Project>{792AE174-72D6-49E3-B165-AFA106A31D50}</Project>
+      <Name>6 - Viajante.Comum</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>

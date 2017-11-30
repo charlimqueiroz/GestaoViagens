@@ -7,11 +7,9 @@ namespace Viajante.Persistencia.Mapeamento
     {
         public VeiculoMap()
         {
-            Id(x => x.Id)
-                .GeneratedBy.Identity()
-                .UnsavedValue(0);
-                //.Access.CamelCaseField(Prefix.Underscore);
-            //Id(x => x.Id);
+            Table("Veiculo");
+
+            Id(x => x.Id).GeneratedBy.Identity().UnsavedValue(0);
             Map(x => x.Placa).Length(7).Unique().Not.Nullable();
             Map(x => x.Chassi).Length(30).Not.Nullable();
             Map(x => x.Marca).Column("Marca").Length(30).Not.Nullable();
@@ -19,8 +17,6 @@ namespace Viajante.Persistencia.Mapeamento
             Map(x => x.AnoModelo).Not.Nullable();
             Map(x => x.AnoFabricacao).Not.Nullable();
             Map(x => x.Inativo).Not.Nullable();
-
-            Table("Veiculo");
         }
     }
 }

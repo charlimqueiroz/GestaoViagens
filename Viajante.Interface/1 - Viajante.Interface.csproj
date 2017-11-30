@@ -106,6 +106,7 @@
     <Content Include="ConexaoBanco\serverBD.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Instrucoes\InstrucoesMapeamento.txt" />
     <Content Include="Script\ScriptViajante.sql" />
   </ItemGroup>
   <ItemGroup>

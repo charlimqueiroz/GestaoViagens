@@ -43,11 +43,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Cliente.cs" />
+    <Compile Include="Dominio\Pessoa.cs" />
+    <Compile Include="Dominio\Endereco.cs" />
+    <Compile Include="Dominio\Cidade.cs" />
+    <Compile Include="Dominio\UnidadeFederacao.cs" />
+    <Compile Include="Dominio\Telefone.cs" />
     <Compile Include="Dominio\Veiculo.cs" />
     <Compile Include="Fabrica\ActivatorTransacao.cs" />
     <Compile Include="Fabrica\FabricaDeRepositorios.cs" />
     <Compile Include="IRepositorio\Generico\IRepositorioGenerico.cs" />
     <Compile Include="IRepositorio\Generico\ITransacao.cs" />
+    <Compile Include="IRepositorio\IPessoaRepositorio.cs" />
+    <Compile Include="IRepositorio\IEnderecoRepositorio.cs" />
+    <Compile Include="IRepositorio\ITelefoneRepositorio.cs" />
+    <Compile Include="IRepositorio\ICidadeRepositorio.cs" />
+    <Compile Include="IRepositorio\IUnidadeFederacaoRepositorio.cs" />
     <Compile Include="IRepositorio\IVeiculoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -85,6 +96,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Viajante.Comum\6 - Viajante.Comum.csproj">
+      <Project>{792AE174-72D6-49E3-B165-AFA106A31D50}</Project>
+      <Name>6 - Viajante.Comum</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
