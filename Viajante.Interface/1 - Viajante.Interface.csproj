@@ -137,6 +137,10 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Viajante.Comum\6 - Viajante.Comum.csproj">
+      <Project>{792AE174-72D6-49E3-B165-AFA106A31D50}</Project>
+      <Name>6 - Viajante.Comum</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Viajante.Negocio\3 - Viajante.Negocio.csproj">
       <Project>{1DAF8B48-9908-420A-BDFA-714D14AB67BC}</Project>
       <Name>3 - Viajante.Negocio</Name>

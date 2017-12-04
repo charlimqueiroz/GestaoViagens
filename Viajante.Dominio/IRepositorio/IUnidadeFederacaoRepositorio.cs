@@ -5,5 +5,6 @@ namespace Noventa.Dominio.IRepositorio
 {
     public interface IUnidadeFederacaoRepositorio : IRepositorioGenerico<UnidadeFederacao>
     {
+        UnidadeFederacao BuscarPelaSigla(string sigla);
     }
 }

@@ -57,6 +57,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\CCliente.cs" />
+    <Compile Include="Controles\CUnidadeFederacao.cs" />
     <Compile Include="Controles\CVeiculo.cs" />
     <Compile Include="Fabrica\FabricaDeControles.cs" />
   </ItemGroup>

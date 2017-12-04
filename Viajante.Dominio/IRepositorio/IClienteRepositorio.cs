@@ -5,5 +5,6 @@ namespace Noventa.Dominio.IRepositorio
 {
     public interface IClienteRepositorio : IRepositorioGenerico<Cliente>
     {
+        Cliente BuscarPeloCodigo(string codigo);
     }
 }

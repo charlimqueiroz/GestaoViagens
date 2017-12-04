@@ -48,6 +48,8 @@
     <Compile Include="Cadastros\TCidade.cs" />
     <Compile Include="Cadastros\TUnidadeFederacao.cs" />
     <Compile Include="Cadastros\TVeiculo.cs" />
+    <Compile Include="IControles\ICUnidadeFederacao.cs" />
+    <Compile Include="IControles\ICCliente.cs" />
     <Compile Include="IControles\ICVeiculo.cs" />
   </ItemGroup>
   <ItemGroup>

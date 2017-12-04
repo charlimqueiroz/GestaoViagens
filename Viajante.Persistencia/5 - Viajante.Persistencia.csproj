@@ -70,7 +70,11 @@
     <Compile Include="Mapeamento\TelefoneMap.cs" />
     <Compile Include="Mapeamento\VeiculoMap.cs" />
     <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Repositorio\CidadeRepositorio.cs" />
+    <Compile Include="Repositorio\EnderecoRepositorio.cs" />
+    <Compile Include="Repositorio\PessoaRepositorio.cs" />
     <Compile Include="Repositorio\Generico\RepositorioGenerico.cs" />
+    <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Repositorio\UnidadeFederacaoRepositorio.cs" />
     <Compile Include="Repositorio\TelefoneRepositorio.cs" />
     <Compile Include="Repositorio\VeiculoRepositorio.cs" />

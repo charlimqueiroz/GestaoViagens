@@ -23,7 +23,7 @@ namespace Viajante.Transporte.Cadastros
         public TipoGenero Genero { get; set; }
         public string NumeroIdentidade { get; set; }
         public string OrgaoExpedidorIdentidade { get; set; }
-        public virtual TUnidadeFederacao UnidadeFederacaoIdentidace { get; set; }
+        public virtual TUnidadeFederacao UnidadeFederacaoIdentidade { get; set; }
         public string Nacionalidade { get; set; }
         public virtual EstadoCivil EstadoCivil { get; set; }
         public virtual string Profissao { get; set; }
