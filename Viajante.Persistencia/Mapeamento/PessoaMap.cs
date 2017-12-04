@@ -29,7 +29,7 @@ namespace Viajante.Persistencia.Mapeamento
             Map(x => x.OrgaoExpedidorIdentidade).Not.Nullable();
             References(x => x.UnidadeFederacaoIdentidace).Column("UnidadeFederacao_Id");
             Map(x => x.Nacionalidade).Not.Nullable();
-            Map(x => x.TipoPessoa).CustomType<EstadoCivil>().Not.Nullable();
+            Map(x => x.EstadoCivil).CustomType<EstadoCivil>().Not.Nullable();
             Map(x => x.Profissao).Not.Nullable();
         }
     }

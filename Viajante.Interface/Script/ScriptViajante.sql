@@ -104,6 +104,7 @@ CREATE TABLE pessoa(
 	[Endereco_Id] [bigint] NULL,
 	[Telefone_Id] [bigint] NULL,
 	[TipoHeranca] [tinyint] NOT NULL,
+	[Codigo] [varchar](20) NOT NULL,
 	[CpfCnpj] [varchar](18) NOT NULL,
 	[InscricaoEstadual] [varchar](16) NOT NULL,
 	[InscricaoMunicipal] [varchar](15) NOT NULL,
@@ -150,8 +151,6 @@ GO
 ------------------------------------------------------------
 CREATE TABLE [dbo].[cliente](
 	[Pessoa_Id] [bigint] NOT NULL,
-	[Endereco_Id] [bigint] NULL,
-	[Codigo] [varchar](20) NOT NULL,
 CONSTRAINT [PK_CLIENTE] PRIMARY KEY CLUSTERED 
 (
 	[Pessoa_Id] ASC
@@ -166,18 +165,9 @@ GO
 ALTER TABLE [dbo].[cliente] CHECK CONSTRAINT [FK_PessoaCliente]
 GO
 
-ALTER TABLE [dbo].[cliente]  WITH CHECK ADD  CONSTRAINT [FK_EnderecoCliente] FOREIGN KEY([Endereco_Id])
-REFERENCES [dbo].[endereco] ([Id])
-GO
-
-ALTER TABLE [dbo].[cliente] CHECK CONSTRAINT [FK_EnderecoCliente]
-GO
-
 ------------------------------------------------------------
 CREATE TABLE [dbo].[fornecedor](
 	[Pessoa_Id] [bigint] NOT NULL,
-	[Endereco_Id] [bigint] NULL,
-	[Codigo] [varchar](20) NOT NULL,
 CONSTRAINT [PK_FORNECEDOR] PRIMARY KEY CLUSTERED 
 (
 	[Pessoa_Id] ASC
@@ -191,12 +181,4 @@ GO
 
 ALTER TABLE [dbo].[fornecedor] CHECK CONSTRAINT [FK_PessoaFornecedor]
 GO
-
-ALTER TABLE [dbo].[fornecedor]  WITH CHECK ADD  CONSTRAINT [FK_EnderecoFornecedor] FOREIGN KEY([Endereco_Id])
-REFERENCES [dbo].[endereco] ([Id])
-GO
-
-ALTER TABLE [dbo].[fornecedor] CHECK CONSTRAINT [FK_EnderecoFornecedor]
-GO
-
 ------------------------------------------------------------

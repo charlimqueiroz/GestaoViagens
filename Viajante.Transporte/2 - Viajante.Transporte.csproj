@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig\RegistrarAutoMapper.cs" />
     <Compile Include="AutoMapperConfig\Veiculo.cs" />
+    <Compile Include="Cadastros\TCliente.cs" />
+    <Compile Include="Cadastros\TEndereco.cs" />
+    <Compile Include="Cadastros\TPessoa.cs" />
     <Compile Include="Cadastros\TTelefone.cs" />
     <Compile Include="Cadastros\TCidade.cs" />
     <Compile Include="Cadastros\TUnidadeFederacao.cs" />

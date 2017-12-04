@@ -23,12 +23,16 @@ namespace Viajante.Interface.Telas
         }
         #endregion
 
-        #region Ações da Interface
+        #region Ações do Menu
         private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarregaTela<FCadastroVeiculo>();
         }
 
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarregaTela<FCadastroCliente>();
+        }
         #endregion
 
         #region Ações dos Botões
@@ -81,6 +85,7 @@ namespace Viajante.Interface.Telas
         }
 
         #endregion
+
 
     }
 }

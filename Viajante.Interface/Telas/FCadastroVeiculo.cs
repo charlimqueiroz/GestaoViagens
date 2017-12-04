@@ -10,7 +10,7 @@ using Viajante.Transporte.IControles;
 
 namespace Viajante.Interface.Telas
 {
-    public partial class FCadastroVeiculo : Form
+    public partial class FCadastroVeiculo : FBaseCadastros
     {
         #region Propriedades
         private ICVeiculo cVeiculo = FabricaDeControles<ICVeiculo>.Instancia;
@@ -115,63 +115,65 @@ namespace Viajante.Interface.Telas
         #endregion
 
         #region Métodos da Interface
-        private void toolStripButton1_Click(object sender, System.EventArgs e)
+        public override bool Salvar()
         {
             if (tbPlaca.Text.Count() != 7)
             {
                 MessageBox.Show("A placa do veículo deve possuir 7 caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (tbChassi.Text.Count() != 17)
             {
                 MessageBox.Show("O chassi do veículo deve possuir 17 caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (tbMarca.Text.Count() == 0)
             {
                 MessageBox.Show("A Marca do veículo deve ser informada.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (tbModelo.Text.Count() == 0)
             {
                 MessageBox.Show("O Modelo do veículo deve ser informado.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (nudAnoModelo.Value == 0)
             {
                 MessageBox.Show("O ano do modelo do veículo não pode ser igual a 0.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (nudAnoFabricacao.Value == 0)
             {
                 MessageBox.Show("O ano de fabricação do veículo não pode ser igual a 0.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (tbPlaca.Text.Substring(0, 3).Where(c => char.IsLetter(c)).Count() != 3)
             {
                 MessageBox.Show("A placa do veículo deve possuir letras nos 3 primeiros caracteres.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
             else
             if (tbPlaca.Text.Substring(3, 4).Where(c => char.IsNumber(c)).Count() != 4)
             {
                 MessageBox.Show("A placa do veículo deve possuir numeros nas posições de 4 a 7.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             TelaParaTransporte();
             cVeiculo.Salvar(tVeiculo);
             LimparTela();
             CarregarGrid();
+
+            return true;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        public override void Excluir()
         {
             if (DialogResult.No == MessageBox.Show("Confirma a exclusão do veículo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 return;

@@ -3,7 +3,7 @@ using Viajante.Dominio.IRepositorio.Generico;
 
 namespace Noventa.Dominio.IRepositorio
 {
-    public interface IPessoaRepositorio : IRepositorioGenerico<Pessoa>
+    public interface IClienteRepositorio : IRepositorioGenerico<Cliente>
     {
     }
 }

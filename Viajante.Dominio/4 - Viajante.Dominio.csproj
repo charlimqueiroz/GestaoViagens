@@ -55,6 +55,7 @@
     <Compile Include="IRepositorio\Generico\IRepositorioGenerico.cs" />
     <Compile Include="IRepositorio\Generico\ITransacao.cs" />
     <Compile Include="IRepositorio\IPessoaRepositorio.cs" />
+    <Compile Include="IRepositorio\IClienteRepositorio.cs" />
     <Compile Include="IRepositorio\IEnderecoRepositorio.cs" />
     <Compile Include="IRepositorio\ITelefoneRepositorio.cs" />
     <Compile Include="IRepositorio\ICidadeRepositorio.cs" />
